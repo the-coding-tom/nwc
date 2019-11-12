@@ -31,5 +31,5 @@ The service will respond with:
     }
 ```
 
-* To Check The Status Of the download.
+### To Check The Status Of the download.
 Send 
