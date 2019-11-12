@@ -55,8 +55,7 @@ if the crawl is complete. Else:
 ```
 
 * To Download The saved data (.ndJson file), 
-Send a GET Request with filename as a parameter to http://localhost:3000/api/data
-eg: 
+Send a GET Request with filename as a parameter to http://localhost:3000/api/data 
 example: 
 ```javascript
 http://localhost:3000/api/data/fileId
@@ -68,7 +67,7 @@ The service will respond with a .ndJson file
     {"url" : "matched url", "regex" : "the pattern that matched"}
     {"url" : "matched url", "regex" : "the pattern that matched"}
 ```
-*NB: All stored .ndJson files are stored in the root folder /app/data/ndjson
+*NB: All saved .ndJson files are stored in the root folder /app/data/ndjson by the app*
 
 ## Test
 This is a test to crawl amazon.com with 5 url regular expressions to search for including a social media url regex and a crawl depth of 3 levels and a dummy api key
