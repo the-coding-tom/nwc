@@ -31,5 +31,25 @@ The service will respond with:
     }
 ```
 
-### To Check The Status Of the download.
-Send 
+* To Check The Status Of the download,
+Send a GET Request with filename as a parameter to http://localhost:3000/api/status
+eg: http://localhost:3000/api/status/filename
+
+* To Download The saved data (.ndJson file), 
+Send a GET Request with filename as a parameter to http://localhost:3000/api/data
+eg: http://localhost:3000/api/data/filename
+
+## Test
+This is a test to crawl amazon.com with 5 url regular expressions to search for including a social media url regex and a crawl depth of 3 levels and a dummy api key
+```
+    {
+	    "domain":"http://www.amazon.com",
+	    "regexes":["^https?:\/\/(www.)?amazon.com.?", 
+                    "^https?:\/\/(www.)?facebook.com.?", 
+                    "^https?:\/\/(www.)?ring.com.?",
+                    "^https?:\/\/(www.)?audible.com.?", 
+                    "^https?:\/\/(www.)?alexa.com.?"],
+	    "numLevels":3,
+	    "apiKey":"hjgyjuyghgj32y"
+    }
+```
