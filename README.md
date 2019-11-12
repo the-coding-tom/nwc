@@ -68,6 +68,7 @@ The service will respond with a .ndJson file
     {"url" : "matched url", "regex" : "the pattern that matched"}
     {"url" : "matched url", "regex" : "the pattern that matched"}
 ```
+*NB: All stored .ndJson files are stored in the root folder /app/data/ndjson
 
 ## Test
 This is a test to crawl amazon.com with 5 url regular expressions to search for including a social media url regex and a crawl depth of 3 levels and a dummy api key
