@@ -41,14 +41,14 @@ eg: http://localhost:3000/api/data/filename
 
 ## Test
 This is a test to crawl amazon.com with 5 url regular expressions to search for including a social media url regex and a crawl depth of 3 levels and a dummy api key
-```
+```javascript
     {
 	    "domain":"http://www.amazon.com",
 	    "regexes":["^https?:\/\/(www.)?amazon.com.?", 
-                    "^https?:\/\/(www.)?facebook.com.?", 
-                    "^https?:\/\/(www.)?ring.com.?",
-                    "^https?:\/\/(www.)?audible.com.?", 
-                    "^https?:\/\/(www.)?alexa.com.?"],
+                    	"^https?:\/\/(www.)?facebook.com.?", 
+                    	"^https?:\/\/(www.)?ring.com.?",
+                    	"^https?:\/\/(www.)?audible.com.?", 
+                    	"^https?:\/\/(www.)?alexa.com.?"],
 	    "numLevels":3,
 	    "apiKey":"hjgyjuyghgj32y"
     }
