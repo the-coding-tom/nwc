@@ -45,10 +45,29 @@ The service will respond with:
     	"fileId": "hjgyjuyghgj32y-www.amazon.com"
     }
 ```
+if the crawl is complete. Else:
+```javascript
+    {
+    	"message": "Web crawler is currently gathering your data.",
+    	"isDone": false,
+    	"fileId": "hjgyjuyghgj32y-www.amazon.com"
+    }
+```
 
 * To Download The saved data (.ndJson file), 
 Send a GET Request with filename as a parameter to http://localhost:3000/api/data
-eg: http://localhost:3000/api/data/filename
+eg: 
+example: 
+```javascript
+http://localhost:3000/api/data/fileId
+```
+The service will respond with a .ndJson file 
+```javascript
+    {"url" : "matched url", "regex" : "the pattern that matched"}
+    ...
+    {"url" : "matched url", "regex" : "the pattern that matched"}
+    {"url" : "matched url", "regex" : "the pattern that matched"}
+```
 
 ## Test
 This is a test to crawl amazon.com with 5 url regular expressions to search for including a social media url regex and a crawl depth of 3 levels and a dummy api key
