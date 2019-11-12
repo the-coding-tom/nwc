@@ -31,9 +31,9 @@ The service will respond with:
     }
 ```
 
-* To Check The Status Of the download,\n
-Send a GET Request with filename as a parameter to http://localhost:3000/api/status
-eg: 
+* To check the status of the download,
+send a GET request with filename as a parameter to http://localhost:3000/api/status
+example: 
 ```javascript
 http://localhost:3000/api/status/filename
 ```
