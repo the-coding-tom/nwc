@@ -19,6 +19,17 @@ with the body parameters
     {
         "domain" : "someurl.com",
         "regexes" : ["\a", "\b", "\c"],
-        ""
+        "numLevels" : 3,
+        "apiKey" : "1234"
     }
 ```
+The service will respond with:
+```javascript
+    {
+        "state" : "In progress",
+        "saveToFile" : "filename"
+    }
+```
+
+* To Check The Status Of the download.
+Send 
