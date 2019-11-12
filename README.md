@@ -27,15 +27,23 @@ The service will respond with:
 ```javascript
     {
         "state" : "In progress",
-        "saveToFile" : "filename"
+        "fileId" : "filename"
     }
 ```
 
-* To check the status of the download,
+* To check if the crawl is complete,
 send a GET request with filename as a parameter to http://localhost:3000/api/status
 example: 
 ```javascript
-http://localhost:3000/api/status/filename
+http://localhost:3000/api/status/fileId
+```
+The service will respond with:
+```javascript
+    {
+    	"message": "Web crawl is complete.",
+    	"isDone": true,
+    	"fileId": "hjgyjuyghgj32y-www.amazon.com"
+    }
 ```
 
 * To Download The saved data (.ndJson file), 
