@@ -6,3 +6,7 @@ A simple web crawling Node.js app
 ```javascript
     npm install
 ```
+* To run the app, run
+```javascript
+    npm start
+```
