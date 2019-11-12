@@ -33,7 +33,10 @@ The service will respond with:
 
 * To Check The Status Of the download,\n
 Send a GET Request with filename as a parameter to http://localhost:3000/api/status
-eg: http://localhost:3000/api/status/filename
+eg: 
+```javascript
+http://localhost:3000/api/status/filename
+```
 
 * To Download The saved data (.ndJson file), 
 Send a GET Request with filename as a parameter to http://localhost:3000/api/data
