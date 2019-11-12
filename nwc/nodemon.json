@@ -1,3 +1,0 @@
-﻿{
-  "ignore": [ "app/data/ndjson/*.ndjson", "app/data/status/*.status" ]
-}
