@@ -1,8 +1,17 @@
-﻿import Crawler from 'crawler';
-import { saveToFile, saveStatus, createNdJsonFile } from '../crawler/FileHandler';
+import Crawler from 'crawler';
+import { saveToFile, saveStatus, createNdJsonFile, fileDownloadComplete } from '../crawler/FileHandler';
 import Url from 'url-parse';
 
-const WebCrawler = (domain, regexes, numLevels, apiKey, response) => {
+/*
+ * Call WebCrawler with the following parameters:
+ * 
+ * (domain) : the domain you want to start crawl with
+ * (regexes) : a list of regular expressions you want to match on the page
+ * (numLevels) : the depth of the crawl
+ * (apiKey) : the client's personal api key
+ * (response) : a callback to pass the response to
+ */
+const WebCrawler = async (domain, regexes, numLevels, apiKey, callback) => {
     let foundLinks = [];
     let currentLevel = 1;
     let count = 0;
@@ -69,14 +78,20 @@ const WebCrawler = (domain, regexes, numLevels, apiKey, response) => {
             }
     });
 
-    // Start
-    c.queue(domain); 
+    // Can't request the same domain to be crawled twice while the previous crawl request is not finished
+    fileDownloadComplete(filename, data => {
+        if (data && !JSON.parse(data).isDone) {
+            callback({ message: `Web crawler is already crawling ${domain}`, isDone: false, fileId: filename });
+            return;
+        } else {
+            // Start crawling the domain
+            c.queue(domain);
 
-    createNdJsonFile(ndJSONFile);
-    saveStatus(JSON.stringify({ "isDone" : false }), stateFile);
-    response.status(200).send({ state: "In progress", fileId: filename });
-
-    console.log(`crawling... ${domain}`);
+            createNdJsonFile(ndJSONFile);
+            saveStatus(JSON.stringify({ "isDone": false }), stateFile);
+            callback({ state: "New crawl started", fileId: filename });
+        }
+    });
 };
 
 export default WebCrawler;
