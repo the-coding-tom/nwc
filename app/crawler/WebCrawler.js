@@ -1,5 +1,5 @@
 import Crawler from 'crawler';
-import { saveToFile, saveStatus, createNdJsonFile, fileDownloadComplete } from '../crawler/FileHandler';
+import { saveToFile, saveStatus, createNdJsonFile } from '../crawler/FileHandler';
 import Url from 'url-parse';
 
 /*
@@ -78,20 +78,12 @@ const WebCrawler = async (domain, regexes, numLevels, apiKey, callback) => {
             }
     });
 
-    // Can't request the same domain to be crawled twice while the previous crawl request is not finished
-    fileDownloadComplete(filename, data => {
-        if (data && !JSON.parse(data).isDone) {
-            callback({ message: `Web crawler is already crawling ${domain}`, isDone: false, fileId: filename });
-            return;
-        } else {
-            // Start crawling the domain
-            c.queue(domain);
+    // Start crawling the start page
+    c.queue(domain);
 
-            createNdJsonFile(ndJSONFile);
-            saveStatus(JSON.stringify({ "isDone": false }), stateFile);
-            callback({ state: "New crawl started", fileId: filename });
-        }
-    });
+    createNdJsonFile(ndJSONFile);
+    saveStatus(JSON.stringify({ "isDone": false }), stateFile);
+    callback({ state: "New crawl started", fileId: filename });
 };
 
 export default WebCrawler;
