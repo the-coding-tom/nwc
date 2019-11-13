@@ -1,11 +1,12 @@
 import VerifyParams from '../middleware/VerifyParams';
+import PreventDuplicateCrawlRequests from '../middleware/PreventDuplicateCrawlRepquests';
 import WebCrawler from '../crawler/WebCrawler';
 import path from 'path';
 import { fileDownloadComplete } from '../crawler/FileHandler';
 
 
 export default (router) => {
-    router.post('/api/crawl', VerifyParams, (req, res) => {
+    router.post('/api/crawl', VerifyParams, PreventDuplicateCrawlRequests, (req, res) => {
         // TODO: handle web crawling here and send response
         WebCrawler(req.body.domain, req.body.regexes, req.body.numLevels, req.body.apiKey, (response) => {
             res.status(200).send(response);
