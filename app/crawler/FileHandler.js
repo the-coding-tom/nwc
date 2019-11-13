@@ -1,4 +1,4 @@
-﻿import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 
 const ndJsonFilesDir = path.join(__dirname, '../data/ndjson');
@@ -33,7 +33,10 @@ export const createNdJsonFile = (filename) => {
 
 // Gets the status of the .ndJSON file passed: if the web crawler is done saving data to the .ndJSON file or still saving
 export const fileDownloadComplete = (filename, callback) => {
-    if (!fs.existsSync(path.join(statusFilesDir, `${filename}-.status`))) return;
+    if (!fs.existsSync(path.join(statusFilesDir, `${filename}-.status`))) {
+        callback(null);
+        return;
+    }
 
     fs.readFile(path.join(statusFilesDir, `${filename}-.status`), 'utf8', (err, data) => {
         if (err) throw err;
