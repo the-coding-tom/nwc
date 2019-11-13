@@ -16,7 +16,7 @@ export default (router) => {
     router.get('/api/data/:fileId', (req, res) => {
         // TODO: implement route to return file if crawl is completed
         fileDownloadComplete(req.params.fileId, data => {
-            if (JSON.parse(data).isDone) {
+            if (data && JSON.parse(data).isDone) {
                 res.download(path.join(__dirname, '../data/ndjson', `${req.params.fileId}-.ndjson`));
             }
         });
@@ -25,7 +25,7 @@ export default (router) => {
     router.get('/api/status/:fileId', (req, res) => {
         // TODO: implement route to return status
         fileDownloadComplete(req.params.fileId, data => {
-            if (JSON.parse(data).isDone) {
+            if (data && JSON.parse(data).isDone) {
                 res.status(200).send({ message: "Web crawl is complete.", isDone: true, fileId: req.params.fileId });
             } else {
                 res.status(200).send({ message: "Web crawler is currently gathering your data", isDone: false, fileId: req.params.fileId });
