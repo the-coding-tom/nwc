@@ -7,7 +7,9 @@ import { fileDownloadComplete } from '../crawler/FileHandler';
 export default (router) => {
     router.post('/api/crawl', VerifyParams, (req, res) => {
         // TODO: handle web crawling here and send response
-        WebCrawler(req.body.domain, req.body.regexes, req.body.numLevels, req.body.apiKey, res);
+        WebCrawler(req.body.domain, req.body.regexes, req.body.numLevels, req.body.apiKey, (response) => {
+            res.status(200).send(response);
+        });
     });
 
     router.get('/api/data/:fileId', (req, res) => {
