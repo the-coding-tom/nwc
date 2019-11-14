@@ -83,7 +83,7 @@ const WebCrawler = (domain, regexes, numLevels, apiKey, callback) => {
 
     createNdJsonFile(ndJSONFile);
     saveStatus(JSON.stringify({ "isDone": false }), stateFile);
-    callback({ state: "New crawl started", fileId: filename });
+    callback({ status: "New crawl started", fileId: filename });
 };
 
 export default WebCrawler;
