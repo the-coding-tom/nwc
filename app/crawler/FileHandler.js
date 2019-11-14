@@ -15,7 +15,7 @@ export const saveToFile = (data, filename) => {
 export const saveStatus = (data, filename) => {
     if (!fs.existsSync(statusFilesDir)) fs.mkdirSync(statusFilesDir);
 
-    fs.writeFile(path.join(statusFilesDir, `${filename}`), data, (err) => {
+    fs.writeFileSync(path.join(statusFilesDir, `${filename}`), data, (err) => {
         if (err) throw err;
 
     });
