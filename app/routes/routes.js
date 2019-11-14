@@ -9,7 +9,7 @@ export default (router) => {
     router.post('/api/crawl', VerifyParams, PreventDuplicateCrawlRequests, (req, res) => {
         // TODO: handle web crawling here and send response
         WebCrawler(req.body.domain, req.body.regexes, req.body.numLevels, req.body.apiKey, (response) => {
-            res.status(200).send(response);
+            res.status(202).send(response);
         });
     });
 
