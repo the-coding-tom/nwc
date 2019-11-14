@@ -11,7 +11,7 @@ import Url from 'url-parse';
  * (apiKey) : the client's personal api key
  * (response) : a callback to pass the response to
  */
-const WebCrawler = async (domain, regexes, numLevels, apiKey, callback) => {
+const WebCrawler = (domain, regexes, numLevels, apiKey, callback) => {
     let foundLinks = [];
     let currentLevel = 1;
     let count = 0;
