@@ -26,7 +26,7 @@ with the body parameters
 The service will respond with:
 ```javascript
     {
-        "state" : "New crawl started",
+        "status" : "New crawl started",
         "fileId" : "filename"
     }
 ```
