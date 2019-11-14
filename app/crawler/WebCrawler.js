@@ -60,7 +60,7 @@ const WebCrawler = (domain, regexes, numLevels, apiKey, callback) => {
                 if (c.queueSize === 0) {
 
                     if (foundLinks.length === 0) {
-                        console.log('exited crawl');
+                        console.log(`exited crawl, links matched: ${count}`);
                         saveStatus(JSON.stringify({ "isDone": true }), stateFile);
                         return;
                     }
