@@ -1,0 +1,1 @@
+# All the web crawlers saved data from web pages are stored in files in this directory
